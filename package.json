@@ -1,0 +1,24 @@
+{
+  "name": "node_spinners",
+  "version": "1.0.0",
+  "description": "just some spinners for node processes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justisGipson/node_spinners.git"
+  },
+  "keywords": [
+    "spinners",
+    "node",
+    "cli"
+  ],
+  "author": "justisGipson <justis710@gmail.com> (justisgipson.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/justisGipson/node_spinners/issues"
+  },
+  "homepage": "https://github.com/justisGipson/node_spinners#readme"
+}
