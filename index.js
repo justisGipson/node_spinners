@@ -1,31 +1,32 @@
 const process = require('process')
+const fs = require('fs')
 const rdl = require('readline')
 const std = process.stdout
+const l = console.log()
+const spinners = JSON.parse(fs.readFileSync('./spinners.json').toString())
+
 
 class Spinner {
 	
-	spin() {
+	spin(spinnerName) {
 		process.stdout.write("\x1b[?25l")
-
-		const spinners = ['-', '\\', '|', '/']
+		const spin = spinners[spinnerName]
+		const spinnerFrames = spin.frames
+		const spinnerTimeInterval = spin.interval
 
 		let index = 0
 
-		setInterval(() => {
-			let line = spinners[index]
-
-			if (line == undefined) {
+		this.timer = setInterval(() => {
+			let now = spinnerFrames[index]
+			if (now == undefined) {
 				index = 0
-				line = spinners[index]
+				now = spinnerFrames[index]
 			}
-
-			std.write(line)
-
+			std.write(now)
 			rdl.cursorTo(std, 0, 0)
-
-			index = index > spinners.length ? 0 : index + 1
-		}, 100)
+			index = index >= spinnerFrames.length ? 0 : index + 1
+		}, spinnerTimeInterval)
 	}
 }
 
-new Spinner().spin()
+new Spinner().spin("arc")
