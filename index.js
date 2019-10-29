@@ -29,4 +29,4 @@ class Spinner {
 	}
 }
 
-new Spinner().spin("arc")
+new Spinner().spin()
